@@ -832,6 +832,10 @@
         formData.append("component", JSON.stringify(componentsOnly));
         formData.append("componentMaterials", JSON.stringify(componentMaterials));
         formData.append("productMaterials", JSON.stringify(productMaterials));
+        if ($('#salePaymentMethod').val() == "Installment"){
+            formData.append("amount_to_be_paid", $('#AmountToPay').val());
+            formData.append("number_of_checkbox", $('input:checkbox:checked').length);
+        }
         $.ajax({
             type: 'POST',
             url: "/createsalesorder",
